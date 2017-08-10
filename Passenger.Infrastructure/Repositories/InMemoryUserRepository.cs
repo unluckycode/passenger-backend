@@ -20,10 +20,10 @@ namespace Passenger.Infrastructure.Repositories
         }
 
         public User Get(Guid Id)
-            => _users.Single(x => x.Id == Id);
+            => _users.SingleOrDefault(x => x.Id == Id);
 
         public User Get(string email)
-            => _users.Single(x => x.Email == email.ToLowerInvariant());
+            => _users.SingleOrDefault(x => x.Email == email.ToLowerInvariant());
 
         public IEnumerable<User> GetAll()
             => _users;
